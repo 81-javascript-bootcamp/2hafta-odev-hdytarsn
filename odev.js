@@ -4,16 +4,18 @@
 
 **/
 
-var car = { 
-    registrationNumber: "GA12345",
-    brand: "Toyota",
+var car = {
+        registrationNumber: "GA12345",
+        brand: "Toyota",
 
-    displayDetails: function(){
-        console.log(this.registrationNumber + " " + this.brand);
+        displayDetails: function() {
+            console.log(this.registrationNumber + " " + this.brand);
+        }
     }
-}
-
-var myCarDetails =  car.displayDetails;
+    //Option1 -> Arrow Funtion
+    //var myCarDetails = () => car.displayDetails();
+    //Option2 -> Bind
+var myCarDetails = car.displayDetails.bind(car);
 myCarDetails();
 
 
@@ -28,7 +30,7 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-  /// your code here
+    /// your code here
 }
 
 
@@ -41,16 +43,12 @@ function isValidName(name) {
 **/
 
 const book = {
-  title: 'Brave New World',
-  author: 'Aldous Huxley',
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
 }
 
 function summary(genre, year) {
-  console.log(
-    `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
-  )
+    console.log(
+        `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
+    )
 }
-
-
-
-
