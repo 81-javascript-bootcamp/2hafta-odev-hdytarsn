@@ -60,3 +60,4 @@ function summary(genre, year) {
         `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
     )
 }
+summary.call(book, 'dystopian', '1932')
