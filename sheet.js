@@ -26,7 +26,7 @@ let summaryF = summary.bind(book, 'dystopian', '1932')
 const answerOne = document.querySelector('#q1_answer');
 const answerTwo = document.querySelector('#q2_answer');
 const answerThree = document.querySelector('#q3_answer');
-var testButton = document.getElementById("add_test");
+const testButton = document.getElementById("add_test");
 
 document.getElementById("add_test").addEventListener("click", () => {
     newTest(document.getElementById('test_case').value)
@@ -43,6 +43,7 @@ function newTest(content) {
     } else {
         answerTwo.append(createTestNode(`'${content}' => ${isValidName(content)}`));
     }
+    document.getElementById('test_case').value = "";
 }
 
 function createTestNode(content) {
