@@ -5,17 +5,20 @@
 **/
 
 var car = {
-        registrationNumber: "GA12345",
-        brand: "Toyota",
+    registrationNumber: "GA12345",
+    brand: "Toyota",
 
-        displayDetails: function() {
-            console.log(this.registrationNumber + " " + this.brand);
-        }
+    displayDetails: function() {
+        console.log(this.registrationNumber + " " + this.brand);
     }
-    //Option1 -> Arrow Funtion
-    //var myCarDetails = () => car.displayDetails();
-    //Option2 -> Bind
-var myCarDetails = car.displayDetails.bind(car);
+}
+
+//Seçenek1 -> Bind
+//var myCarDetails = car.displayDetails.bind(car);
+
+//Seçenek2 -> Arrow Funtion
+var myCarDetails = () => car.displayDetails();
+
 myCarDetails();
 
 
@@ -30,7 +33,12 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-    /// your code here
+
+    return typeof(name) === "string" && name.replace(/\s/g, "").length > 1;
+
+    // Gelen değerin string olup olmadığı kontrol edilir, ardından name değerindeki tüm boşluk karakterleri silinir ve kalan değerin uzunluğununun 1'den büyük olup olmadığına bakılır (>=2). 
+    // RegEx'teki \s ->boşluk karakterleri ile eşleştirme ; g -> global search(tüm string'i tarama) için kullanılır.
+
 }
 
 
