@@ -4,16 +4,21 @@
 
 **/
 
-var car = { 
+var car = {
     registrationNumber: "GA12345",
     brand: "Toyota",
 
-    displayDetails: function(){
+    displayDetails: function() {
         console.log(this.registrationNumber + " " + this.brand);
     }
 }
 
-var myCarDetails =  car.displayDetails;
+//Seçenek1 -> Bind
+//var myCarDetails = car.displayDetails.bind(car);
+
+//Seçenek2 -> Arrow Funtion
+var myCarDetails = () => car.displayDetails();
+
 myCarDetails();
 
 
@@ -28,7 +33,12 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-  /// your code here
+
+    return typeof(name) === "string" && name.replace(/\s/g, "").length > 1;
+
+    // Gelen değerin string olup olmadığı kontrol edilir, ardından name değerindeki tüm boşluk karakterleri silinir ve kalan değerin uzunluğununun 1'den büyük olup olmadığına bakılır (>=2). 
+    // RegEx'teki \s ->boşluk karakterleri ile eşleştirme ; g -> global search(tüm string'i tarama) için kullanılır.
+
 }
 
 
@@ -41,16 +51,14 @@ function isValidName(name) {
 **/
 
 const book = {
-  title: 'Brave New World',
-  author: 'Aldous Huxley',
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
 }
 
 function summary(genre, year) {
-  console.log(
-    `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
-  )
+    console.log(
+        `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
+    )
 }
 
-
-
-
+summary.call(book, 'dystopian', '1932')
